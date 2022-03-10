@@ -1,0 +1,9 @@
+.article-pictures {
+    background-color: darkgoldenrod;
+    grid-column: 1 / span 6;
+}
+
+.article-content {
+    background-color: darksalmon;
+    grid-column: 7 / span 6;
+}

@@ -1,0 +1,11 @@
+.container {
+    display: grid;
+
+    /* grid-template-rows: nur zu besseren Darstellung, kann in der Prod gelöscht werden */
+    grid-template-rows: repeat(3, 700px);
+
+    grid-template-columns: [full-start] 1fr [center-start] repeat(10, 1fr) [center-end] 1fr [full-end];
+
+    /* nur für sticky header, ansonsten entfernen, muss identisch zu Höhe des Headers sein*/
+    padding-top: 80px;
+}

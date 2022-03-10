@@ -1,0 +1,193 @@
+.header {
+  /* opacity background*/
+  // background-color: rgba(0, 0, 0, 0);
+  /*background-color: black;*/
+  background: rgba(34,34,34,0.25);
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  height: 80px;
+ 
+  /* für sticky header */
+  position: fixed;
+  width: 100%;
+  top: 0; 
+  color: white;
+}
+
+.header__logo {
+  width: 40px;
+  fill: white;
+}
+
+.header__nav {
+    display: flex;
+    align-items: center;  
+}
+
+/* underline animation */
+
+.header__nav-link {
+  position: relative;
+  text-decoration: none;
+  margin: 0 20px;
+}
+
+.header__nav-link:after{
+  content: "";
+  position: absolute;
+  background-color: #ff3c78;
+  height: 3px;
+  width: 0;
+  left: 0;
+  bottom: -10px;
+  transition: 0.3s;
+}
+.header__nav-link:hover{
+  color: #ff3c78;
+}
+.header__nav-link:hover:after{
+  width: 100%;
+}
+
+/* aktuelle Seitenlink markiert */
+
+.selected {
+  color: #ff3c78;
+}
+
+.selected:after {
+  width: 100%;
+}
+
+
+
+/* mobile menu */
+
+.header__mobile-nav a {
+  text-decoration: none;
+  padding: 40px 0;
+  font-size: 2rem;
+}
+
+
+.header__mobile-nav {
+  // display: none;
+  position: absolute;
+  top: 80px;
+  left: 0;
+  height: calc(100vh - 80px);
+  width: 100%;
+  background-color: black;
+
+  /*fade in von links, in diesem Fall display: none löschen */
+  transform: translateX(-100%); /* the element is transposed 300px to the left of where it's supposed to be */
+  transition: transform 1s ease-out, visibility 1s;
+  visibility: hidden;
+}
+
+
+.open .header__mobile-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* wenn die Links oben anfangen soll*/
+  /*justify-content: flex-start;*/
+  /* wenn die Links mittig angeordnet werden soll*/
+  justify-content: center;
+ 
+  /* fade in von links*/
+  transform: translateX(0px); /* the element is returned to where it's supposed to be */
+  transition: transform 1s ease-out, visibility 0s;
+  visibility: visible;
+}
+
+/* change bg-color and colors of type and svg on scroll */
+
+  .active {
+   background-color: white;
+   color: black;
+   transition: all 1s linear;
+ }
+
+
+.active .header__logo {
+  fill: black;
+  transition: fill 2s linear;
+}
+
+.active #hamburger-icon div {
+background-color: black;
+transition: all 2s linear;
+}
+
+.active .open .header__mobile-nav {
+  color: white; 
+}
+
+
+
+/* hamburg icon */
+
+#hamburger-icon {
+  margin: auto 0;
+  display: none;
+  cursor: pointer;
+}
+
+#hamburger-icon div {
+  /* wenn alle drei bars gleichlang sind, können diese direkt im div angegeben werden*/
+  // width: 35px;
+  height: 3px;
+  background-color: white;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+.hamburger-icon__bar1,
+.hamburger-icon__bar2 {
+  width: 35px;
+}
+
+.hamburger-icon__bar3 {
+  width: 20px;
+}
+
+/* hamburg icon, wenn mobile-menu offen ist */
+
+.open .hamburger-icon__bar1 {
+  /* -45deg für ein ausgeglichenes Kreuz */
+  -webkit-transform: rotate(-30deg) translate(-6px, 6px);
+  transform: rotate(-30deg) translate(-6px, 6px);
+}
+
+.open .hamburger-icon__bar2 {
+  opacity: 0;
+}
+
+.open .hamburger-icon__bar3 {
+    /* -45deg für ein ausgeglichenes Kreuz */
+  -webkit-transform: rotate(30deg) translate(-6px, -8px);
+  transform: rotate(30deg) translate(-6px, -8px);
+  width: 35px;
+}
+
+
+@media only screen and (max-width: 575px) {
+  .header__nav {
+    display: none;
+  }
+
+  #hamburger-icon {
+    display: block;
+  }
+}
+
+
+
+
+
+
+
+
+
+
