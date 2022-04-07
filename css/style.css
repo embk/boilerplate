@@ -1,7 +1,7 @@
-
 @import "base/_global.css";
 @import "modules/_container.css";
 @import "modules/_header.css";
+@import "modules/_nav.css";
 @import "modules/_about.css";
 @import "modules/_article.css";
 @import "modules/_footer.css";
